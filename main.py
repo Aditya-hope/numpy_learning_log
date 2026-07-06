@@ -122,3 +122,52 @@ array2=np.array([[1],[2],[3],[4],[5],[6],[7],[8],[9],[10]])
 print(array1.shape)
 print(array2.shape)
 print(array2*array1)
+
+
+
+#aggregate functions =summarize data and typically
+#                       return a single value
+
+array=np.array([[1,2,3,4,5],[6,7,8,9,10]])
+print(np.sum(array))
+print(np.mean(array))
+print(np.std(array))
+print(np.var(array))
+print(np.min(array))
+print(np.max(array))
+print(np.argmin(array))
+print(np.argmax(array))
+print(np.sum(array,axis=0))
+print(np.sum(array,axis=1))
+
+
+
+'''filtering'''
+
+#filtering=refers to the process of selecting element from an array that match a given condition
+
+ages=np.array([[11,16,18,19,21,65],[21,19,98,94,95,24]])
+teenagers=ages[ages<18]
+print(teenagers)
+
+adults=ages[(ages>=18) & (ages<65)]
+print(adults)
+seniors=ages[ages>=65]
+evens=ages[ages%2==0]
+print(evens)
+odds=ages[ages%2!=0]
+print(ages)
+
+adults=np.where(ages>=18,ages,0)
+print(adults)
+
+
+rng=np.random.default_rng(seed=1)
+print(rng.integers(low=1,high=101,size=(3,2)))
+
+array=np.array([1,2,3,4,5])
+rng.shuffle(array)
+print(array)
+print(rng.choice(array,size=(3,3)))
+
+print(np.random.uniform(low=-1,high=1,size=(3,2)))
